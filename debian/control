@@ -1,0 +1,15 @@
+Source: epics-seq
+Section: unknown
+Priority: optional
+Maintainer: Martin Konrad <Martin Konrad <konrad@frib.msu.edu>>
+Build-Depends: debhelper (>= 9), autotools-dev
+Standards-Version: 3.9.6
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://anonscm.debian.org/collab-maint/epics-seq.git
+#Vcs-Browser: https://anonscm.debian.org/gitweb/?p=collab-maint/epics-seq.git;a=summary
+
+Package: epics-seq
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
