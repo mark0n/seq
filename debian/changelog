@@ -1,5 +1,5 @@
 epics-seq (2.2.3-1) unstable; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  Initial release of a separate package for the sequencer
 
- -- Martin Konrad <Martin Konrad <konrad@frib.msu.edu>>  Tue, 12 Jan 2016 11:17:01 -0500
+ -- Martin Konrad <konrad@frib.msu.edu>  Tue, 12 Jan 2016 11:17:01 -0500

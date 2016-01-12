@@ -1,0 +1,4 @@
+# dh_strip doesn't seem to want to touch usr/lib/epics/lib/*-debug/*.so
+# not sure why?
+libseq2.2.3: unstripped-binary-or-object usr/lib/epics/lib/linux-x86_64-debug/libpv.so.2.2.3
+libseq2.2.3: unstripped-binary-or-object usr/lib/epics/lib/linux-x86_64-debug/libseq.so.2.2.3

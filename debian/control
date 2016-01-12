@@ -1,15 +1,39 @@
 Source: epics-seq
-Section: unknown
+Section: admin
 Priority: optional
-Maintainer: Martin Konrad <Martin Konrad <konrad@frib.msu.edu>>
-Build-Depends: debhelper (>= 9), autotools-dev
+Maintainer: Martin Konrad <konrad@frib.msu.edu>
+Build-Depends: debhelper (>= 9), epics-debhelper, re2c (>= 0.9.9), epics-dev
 Standards-Version: 3.9.6
-Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: git://anonscm.debian.org/collab-maint/epics-seq.git
-#Vcs-Browser: https://anonscm.debian.org/gitweb/?p=collab-maint/epics-seq.git;a=summary
+Homepage: http://www-csr.bessy.de/control/SoftDist/sequencer/
+Vcs-Git: https://github.com/epicsdeb/epics-seq.git
+Vcs-Browser: https://github.com/epicsdeb/epics-seq
 
-Package: epics-seq
+Package: epics-seq-dev
+Architecture: any
+Depends: libseq2.2.3 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Conflicts: epics-synapps (<= 20141009-2)
+Description: State Notation Language and Sequencer
+ The Experimental Physics and Industrial Control System is a collection of
+ tools, libraries and applications for creating a distributed soft real-time
+ control systems.
+ .
+ This package contains the State Notation Language (SNL), which is a domain
+ specific programming language that smoothly integrates with and depends and
+ builds on EPICS base. This project defines SNL and provides an
+ implementation, consisting of the SNL compiler and runtime system.
+
+Package: libseq2.2.3
+Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Conflicts: epics-synapps (<= 20141009-2)
+Provides: libseq
+Description: State Notation Language and Sequencer
+ The Experimental Physics and Industrial Control System is a collection of
+ tools, libraries and applications for creating a distributed soft real-time
+ control systems.
+ .
+ This package contains the State Notation Language (SNL), which is a domain
+ specific programming language that smoothly integrates with and depends and
+ builds on EPICS base. This project defines SNL and provides an
+ implementation, consisting of the SNL compiler and runtime system.

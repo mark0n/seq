@@ -1,14 +1,14 @@
 #!/usr/bin/make -f
 # See debhelper(7) (uncomment to enable)
 # output every command that modifies files on the build system.
-#export DH_VERBOSE = 1
-
-# see EXAMPLES in dpkg-buildflags(1) and read /usr/share/dpkg/*
-DPKG_EXPORT_BUILDFLAGS = 1
-include /usr/share/dpkg/default.mk
+export DH_VERBOSE = 1
 
 # see FEATURE AREAS in dpkg-buildflags(1)
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# see EXAMPLES in dpkg-buildflags(1) and read /usr/share/dpkg/*
+#DPKG_EXPORT_BUILDFLAGS = 1
+#include /usr/share/dpkg/default.mk
 
 # see ENVIRONMENT in dpkg-buildflags(1)
 # package maintainers to append CFLAGS
@@ -16,17 +16,36 @@ include /usr/share/dpkg/default.mk
 # package maintainers to append LDFLAGS
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
+# Add Debian flags to the EPICS build
+DEB_USR_CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
+DEB_USR_CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
+DEB_USR_CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+DEB_USR_LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
+
+export EPICS_HOST_ARCH:=$(shell /usr/lib/epics/startup/EpicsHostArch)
+
+#export EPICS_BASE = /usr/lib/epics
 
 # main packaging script based on dh7 syntax
 %:
-	dh $@  --with autotools-dev
+	dh $@  --with epics -Sepicsmake --parallel
 
-# dh_make generated override targets
-# This is example for Cmake (See https://bugs.debian.org/641051 )
-#override_dh_auto_configure:
-#	dh_auto_configure -- \
-#	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+override_dh_auto_configure:
+override_dh_auto_test:
 
+override_dh_auto_clean:
+	sed -i 's%EPICS_BASE=.*%EPICS_BASE=/usr/lib/epics%g' configure/RELEASE
+	dh_auto_clean
 
+override_dh_auto_build:
+	sed -i 's%EPICS_BASE=.*%EPICS_BASE=/usr/lib/epics%g' configure/RELEASE
+	dh_auto_build -- USR_CFLAGS_Linux="$(DEB_USR_CFLAGS)" \
+	USR_CXXFLAGS_Linux="$(DEB_USR_CXXFLAGS)" \
+	USR_CPPFLAGS_Linux="$(DEB_USR_CPPFLAGS)" \
+	USR_LDFLAGS_Linux="$(DEB_USR_LDFLAGS)"
 
-
+override_dh_install:
+	rm -f debian/tmp/usr/lib/epics/bin/linux-*/lemon
+	install -d debian/tmp/usr/bin
+	ln -s ../lib/epics/bin/$(EPICS_HOST_ARCH)/snc debian/tmp/usr/bin/snc
+	dh_install --fail-missing
