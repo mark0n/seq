@@ -1,0 +1,23 @@
+From: Martin Konrad <konrad@frib.msu.edu>
+Date: Wed, 13 Jan 2016 08:48:45 -0500
+Subject: Skip building examples
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index ccf949b..9db1cec 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,8 +9,8 @@ src_DEPEND_DIRS  = configure
+ #DIRS += test
+ #test_DEPEND_DIRS = src
+ 
+-DIRS += examples
+-examples_DEPEND_DIRS = src
++#DIRS += examples
++#examples_DEPEND_DIRS = src
+ 
+ BRANCH = 2-2
+ DEFAULT_REPO = /opt/repositories/controls/darcs/epics/support/seq/branch-$(BRANCH)
