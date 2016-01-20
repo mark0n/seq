@@ -1,3 +1,2 @@
-# dh_strip doesn't seem to want to touch usr/lib/epics/bin/*-debug/*
-# not sure why?
+# Don't strip for -debug targets
 epics-seq-dev: unstripped-binary-or-object usr/lib/epics/bin/linux-x86_64-debug/snc
