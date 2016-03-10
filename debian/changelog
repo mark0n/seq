@@ -1,3 +1,10 @@
+epics-seq (2.2.3-2) unstable; urgency=medium
+
+  * Drop RTEMS-mvme2307 build and add RTEMS-pc386
+  * depend on epics-debhelper >=8.14 to fix configure/RELEASE conflict.
+
+ -- Michael Davidsaver <mdavidsaver@gmail.com>  Thu, 10 Mar 2016 16:35:02 -0500
+
 epics-seq (2.2.3-1) unstable; urgency=low
 
   Initial release of a separate package for the sequencer
