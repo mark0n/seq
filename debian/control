@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: Martin Konrad <konrad@frib.msu.edu>
 Build-Depends: debhelper (>= 9), epics-debhelper (>= 8.14~), re2c (>= 0.9.9), epics-dev,
                rtems-epics-mvme2100,
-               rtems-epics-mvme2307,
                rtems-epics-mvme3100,
                rtems-epics-mvme5500,
+               rtems-epics-pc386,
 XS-Rtems-Build-Depends: rtems-epics
 Standards-Version: 3.9.6
 Homepage: http://www-csr.bessy.de/control/SoftDist/sequencer/
@@ -59,22 +59,6 @@ Description: State Notation Language and Sequencer
  .
  This package contains support for the MVME2100 PowerPC based VME SBC.
 
-Package: rtems-seq-mvme2307
-Architecture: all
-Depends: ${rtems:Depends}, epics-seq-dev (= ${binary:Version}),
-         ${misc:Depends},
-Description: State Notation Language and Sequencer
- The Experimental Physics and Industrial Control System is a collection of
- tools, libraries and applications for creating a distributed soft real-time
- control systems.
- .
- This package contains the State Notation Language (SNL), which is a domain
- specific programming language that smoothly integrates with and depends and
- builds on EPICS base. This project defines SNL and provides an
- implementation, consisting of the SNL compiler and runtime system.
- .
- This package contains support for the MVME2307 PowerPC based VME SBC.
-
 Package: rtems-seq-mvme3100
 Architecture: all
 Depends: ${rtems:Depends}, epics-seq-dev (= ${binary:Version}),
@@ -106,3 +90,19 @@ Description: State Notation Language and Sequencer
  implementation, consisting of the SNL compiler and runtime system.
  .
  This package contains support for the MVME5500 PowerPC based VME SBC.
+
+Package: rtems-seq-pc386
+Architecture: all
+Depends: ${rtems:Depends}, epics-seq-dev (= ${binary:Version}),
+         ${misc:Depends},
+Description: State Notation Language and Sequencer
+ The Experimental Physics and Industrial Control System is a collection of
+ tools, libraries and applications for creating a distributed soft real-time
+ control systems.
+ .
+ This package contains the State Notation Language (SNL), which is a domain
+ specific programming language that smoothly integrates with and depends and
+ builds on EPICS base. This project defines SNL and provides an
+ implementation, consisting of the SNL compiler and runtime system.
+ .
+ This package contains support for the pc386 RTEMS BSP.
