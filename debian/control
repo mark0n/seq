@@ -45,7 +45,9 @@ Description: State Notation Language and Sequencer
 
 Package: rtems-seq-mvme2100
 Architecture: all
-Depends: ${rtems:Depends}, epics-seq-dev (= ${binary:Version}),
+Depends: ${rtems:Depends},
+         epics-seq-dev (>= ${source:Version}),
+         epics-seq-dev (<< ${source:Version}.1~),
          ${misc:Depends},
 Description: State Notation Language and Sequencer
  The Experimental Physics and Industrial Control System is a collection of
@@ -61,7 +63,9 @@ Description: State Notation Language and Sequencer
 
 Package: rtems-seq-mvme3100
 Architecture: all
-Depends: ${rtems:Depends}, epics-seq-dev (= ${binary:Version}),
+Depends: ${rtems:Depends},
+         epics-seq-dev (>= ${source:Version}),
+         epics-seq-dev (<< ${source:Version}.1~),
          ${misc:Depends},
 Description: State Notation Language and Sequencer
  The Experimental Physics and Industrial Control System is a collection of
@@ -77,7 +81,9 @@ Description: State Notation Language and Sequencer
 
 Package: rtems-seq-mvme5500
 Architecture: all
-Depends: ${rtems:Depends}, epics-seq-dev (= ${binary:Version}),
+Depends: ${rtems:Depends},
+         epics-seq-dev (>= ${source:Version}),
+         epics-seq-dev (<< ${source:Version}.1~),
          ${misc:Depends},
 Description: State Notation Language and Sequencer
  The Experimental Physics and Industrial Control System is a collection of
@@ -93,7 +99,9 @@ Description: State Notation Language and Sequencer
 
 Package: rtems-seq-pc386
 Architecture: all
-Depends: ${rtems:Depends}, epics-seq-dev (= ${binary:Version}),
+Depends: ${rtems:Depends},
+         epics-seq-dev (>= ${source:Version}),
+         epics-seq-dev (<< ${source:Version}.1~),
          ${misc:Depends},
 Description: State Notation Language and Sequencer
  The Experimental Physics and Industrial Control System is a collection of
