@@ -1,3 +1,10 @@
+epics-seq (2.2.3-3) unstable; urgency=medium
+
+  * fix all -> any dep
+  * add source override
+
+ -- Michael Davidsaver <mdavidsaver@gmail.com>  Thu, 10 Mar 2016 17:07:52 -0500
+
 epics-seq (2.2.3-2) unstable; urgency=medium
 
   * Drop RTEMS-mvme2307 build and add RTEMS-pc386
