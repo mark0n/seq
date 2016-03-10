@@ -1,2 +1,0 @@
-# Don't strip for -debug targets
-epics-seq-dev: unstripped-binary-or-object usr/lib/epics/bin/linux-x86_64-debug/snc

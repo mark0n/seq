@@ -2,7 +2,7 @@ Source: epics-seq
 Section: admin
 Priority: optional
 Maintainer: Martin Konrad <konrad@frib.msu.edu>
-Build-Depends: debhelper (>= 9), epics-debhelper (>= 8.13~), re2c (>= 0.9.9), epics-dev,
+Build-Depends: debhelper (>= 9), epics-debhelper (>= 8.14~), re2c (>= 0.9.9), epics-dev,
                rtems-epics-mvme2100,
                rtems-epics-mvme2307,
                rtems-epics-mvme3100,
