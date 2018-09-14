@@ -1,2 +1,10 @@
 # For epics-debhelper
 epics-seq source: unknown-field-in-dsc rtems-build-depends
+epics-seq source: invalid-restriction-formula-in-build-profiles-field <pkg.epics-base.rtems> rtems-seq-mvme2100
+epics-seq source: invalid-restriction-formula-in-build-profiles-field <pkg.epics-base.rtems> rtems-seq-mvme3100
+epics-seq source: invalid-restriction-formula-in-build-profiles-field <pkg.epics-base.rtems> rtems-seq-mvme5500
+epics-seq source: invalid-restriction-formula-in-build-profiles-field <pkg.epics-base.rtems> rtems-seq-pc386
+epics-seq source: invalid-profile-name-in-source-relation pkg.epics-base.rtems [build-depends: rtems-epics-mvme2100 <pkg.epics-base.rtems>]
+epics-seq source: invalid-profile-name-in-source-relation pkg.epics-base.rtems [build-depends: rtems-epics-mvme3100 <pkg.epics-base.rtems>]
+epics-seq source: invalid-profile-name-in-source-relation pkg.epics-base.rtems [build-depends: rtems-epics-mvme5500 <pkg.epics-base.rtems>]
+epics-seq source: invalid-profile-name-in-source-relation pkg.epics-base.rtems [build-depends: rtems-epics-pc386 <pkg.epics-base.rtems>]
