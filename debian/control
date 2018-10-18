@@ -2,11 +2,12 @@ Source: epics-seq
 Section: admin
 Priority: optional
 Maintainer: Martin Konrad <konrad@frib.msu.edu>
-Build-Depends: debhelper (>= 9), epics-debhelper (>= 8.14~), re2c (>= 0.9.9), epics-dev,
-               rtems-epics-mvme2100,
-               rtems-epics-mvme3100,
-               rtems-epics-mvme5500,
-               rtems-epics-pc386,
+Build-Depends: debhelper (>= 9.20141010), dpkg-dev (>= 1.17.14),
+               epics-debhelper (>= 8.14~), re2c (>= 0.9.9), epics-dev,
+               rtems-epics-mvme2100 <pkg.epics-base.rtems>,
+               rtems-epics-mvme3100 <pkg.epics-base.rtems>,
+               rtems-epics-mvme5500 <pkg.epics-base.rtems>,
+               rtems-epics-pc386 <pkg.epics-base.rtems>,
 XS-Rtems-Build-Depends: rtems-epics
 Standards-Version: 3.9.6
 Homepage: http://www-csr.bessy.de/control/SoftDist/sequencer/
@@ -43,6 +44,7 @@ Description: State Notation Language and Sequencer
  implementation, consisting of the SNL compiler and runtime system.
 
 Package: rtems-seq-mvme2100
+Build-Profiles: <pkg.epics-base.rtems>
 Architecture: all
 Depends: ${rtems:Depends},
          epics-seq-dev (>= ${source:Version}),
@@ -62,6 +64,7 @@ Description: State Notation Language and Sequencer
  This package contains support for the MVME2100 PowerPC based VME SBC.
 
 Package: rtems-seq-mvme3100
+Build-Profiles: <pkg.epics-base.rtems>
 Architecture: all
 Depends: ${rtems:Depends},
          epics-seq-dev (>= ${source:Version}),
@@ -81,6 +84,7 @@ Description: State Notation Language and Sequencer
  This package contains support for the MVME3100 PowerPC based VME SBC.
 
 Package: rtems-seq-mvme5500
+Build-Profiles: <pkg.epics-base.rtems>
 Architecture: all
 Depends: ${rtems:Depends},
          epics-seq-dev (>= ${source:Version}),
@@ -100,6 +104,7 @@ Description: State Notation Language and Sequencer
  This package contains support for the MVME5500 PowerPC based VME SBC.
 
 Package: rtems-seq-pc386
+Build-Profiles: <pkg.epics-base.rtems>
 Architecture: all
 Depends: ${rtems:Depends},
          epics-seq-dev (>= ${source:Version}),
