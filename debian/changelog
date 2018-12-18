@@ -1,3 +1,10 @@
+epics-seq (2.2.6-1) unstable; urgency=medium
+
+  * New upstream version 2.2.6
+  * Bump up version in control file
+
+ -- Martin Konrad <konrad@frib.msu.edu>  Tue, 18 Dec 2018 15:30:35 -0500
+
 epics-seq (2.2.3-5) unstable; urgency=medium
 
   * Use build profile to enable RTEMS cross build
