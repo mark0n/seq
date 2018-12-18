@@ -1,6 +1,46 @@
 Known Problems
 ==============
 
+.. _Known_Problems_2.2.5:
+
+Known Problems in Release 2.2.5
+-------------------------------
+
+* While building against base 7.x succeeds there are lots of deprecation
+  warnings and most of the tests are not run due to an incomplete definition
+  of the EPICS_HAS_UNIT_TEST make variable.
+
+.. _Known_Problems_2.2.4:
+
+Known Problems in Release 2.2.4
+-------------------------------
+
+* Building fails with Visual Studio 2010 due to a C99-ism (mixed
+  declarations and code) that was introduced when upgrading the lemon parser
+  template.
+
+* Parallel building can fail when using gcc to generate dependency information.
+  The solution is to use the EPICS tool mkmf.pl instead by placing a line
+
+    HDEPENDS_METHOD = MKMF
+
+  in the config section of src/snc/Makefile.
+
+* On Windows, ``make clean`` fails inside the documentation directory. The
+  fix is to replace ``rm -rf`` with ``$(RMDIR)`` in documentation/Makefile.
+
+.. _Known_Problems_2.2.3:
+
+Known Problems in Release 2.2.3
+-------------------------------
+
+* Certain versions of Windows don't like relative paths with forward slashes
+  for commands whose result gets redirected to a file. This leads to errors
+  when building against base-3.15 which has deprecated the ``PATH_FILTER``
+  function (which converts forward to backward slashes). The solution is to
+  define ``LEMON=$(abspath $(INSTALL_HOST_BIN)/lemon$(HOSTEXE))`` in
+  ``src/snc/Makefile``.
+
 .. _Known_Problems_2.2.2:
 
 Known Problems in Release 2.2.2
