@@ -6,21 +6,15 @@ include $(TOP)/configure/CONFIG
 
 SNC = $(INSTALL_HOST_BIN)/snc$(HOSTEXE)
 
-DBD += demo.dbd
+DBD += traffic.dbd
 # do not install dbd file, just build it:
 INSTALL_DBDS=
 
-TESTPROD_IOC = demo
-demo_SRCS += demo.st
-
-#generic IOC stuff
-demo_SRCS += demo_registerRecordDeviceDriver.cpp
-demo_SRCS_DEFAULT += demoMain.c
-demo_SRCS_vxWorks += -nil-
-demo_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
-
-demo_LIBS += $(EPICS_BASE_IOC_LIBS)
-demo_LIBS += seq pv
+TESTPROD_IOC = traffic
+traffic_LIBS += $(EPICS_BASE_IOC_LIBS) seq pv
+traffic_SRCS += traffic.st
+traffic_SRCS += traffic_registerRecordDeviceDriver.cpp
+traffic_SRCS += trafficMain.c
 
 include $(TOP)/configure/RULES
 #----------------------------------------

@@ -51,6 +51,12 @@ ifndef ECHO
 endif
 
 #--------------------------------------------------
+
+define COMPILE.snl
+	$(abspath $(SNC)) $(TARGET_SNCFLAGS) $(SNCFLAGS) $(USR_SNCFLAGS) $< -o $@
+endef
+
+#--------------------------------------------------
 # Rules
 
 %.st$(DEP): %.st
@@ -63,15 +69,15 @@ endif
 
 %.c: %.i $(SNC)
 	$(ECHO) "compiling $< to C"
-	$(SNC) $(TARGET_SNCFLAGS) $(SNCFLAGS) $(USR_SNCFLAGS) $(call PATH_FILTER,$<) -o $(*F).c
+	$(COMPILE.snl)
 
 %.c: %.stt $(SNC)
 	$(ECHO) "compiling $< to C"
-	$(SNC) $(TARGET_SNCFLAGS) $(SNCFLAGS) $(USR_SNCFLAGS) $(call PATH_FILTER,$<) -o $(*F).c
+	$(COMPILE.snl)
 
 CLEANS += $(wildcard *.d)
 
-ifndef BASE_3_15
+ifeq ($(BASE_3_14),YES)
 clean::
 	$(RM) $(CLEANS)
 endif
